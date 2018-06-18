@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">StreamingOpdrachtAndroid</string>
+    <string name="setup">Setup</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="teardown">Teardown</string>
+</resources>

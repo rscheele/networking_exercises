@@ -1,0 +1,1 @@
+java -cp C:\Users\Erco\Documents\NetBeansProjects\VH8I_SocketPracticum\dist\VH8I_SocketPracticum.jar vh8i_socketpracticum.SocketServerTCP 7896
