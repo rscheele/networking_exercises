@@ -104,7 +104,7 @@ public class StreamingServer extends JFrame implements ActionListener {
         theStreamingServer.setVisible(true);
 
         //get RTSP socket port from the command line
-        int RTSPport = Integer.parseInt(argv[0]);
+        int RTSPport = 8080;
 
         //Initiate TCP connection with the client for the RTSP session
         ServerSocket listenSocket = new ServerSocket(RTSPport);
