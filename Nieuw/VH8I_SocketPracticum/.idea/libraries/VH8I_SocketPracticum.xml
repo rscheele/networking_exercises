@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="VH8I_SocketPracticum">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/VH8I_SocketPracticum.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
