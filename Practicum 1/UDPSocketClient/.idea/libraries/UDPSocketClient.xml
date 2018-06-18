@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="UDPSocketClient">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/UDPSocketClient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

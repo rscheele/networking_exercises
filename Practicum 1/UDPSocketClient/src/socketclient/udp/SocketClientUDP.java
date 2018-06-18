@@ -6,17 +6,9 @@ import java.net.*;
 public class SocketClientUDP {
 
     public static void main(String[] args) throws Exception {
-        
-        if (args.length != 2) {
-            System.err.println("Usage: java UDPClient <host name> <port number>");
-            System.exit(1);
-        }
-        
-        String hostName = args[0];
-        int portNumber = Integer.parseInt(args[1]);
-                
-        BufferedReader inFromUser
-                = new BufferedReader(new InputStreamReader(System.in));
+
+        int portNumber = 8080;
+        String hostName = "192.168.178.13";
 
         DatagramSocket clientSocket = new DatagramSocket();
 
@@ -25,7 +17,7 @@ public class SocketClientUDP {
         byte[] sendData = new byte[1024];
         byte[] receiveData = new byte[1024];
 
-        String sentence = inFromUser.readLine();
+        String sentence = "Greetings from the UDP client!";
         sendData = sentence.getBytes();
 
         DatagramPacket sendPacket
@@ -41,7 +33,7 @@ public class SocketClientUDP {
         String modifiedSentence
                 = new String(receivePacket.getData());
 
-        System.out.println("FROM SERVER:" + modifiedSentence);
+        System.out.println("FROM SERVER: " + modifiedSentence);
         clientSocket.close();
 
     }
