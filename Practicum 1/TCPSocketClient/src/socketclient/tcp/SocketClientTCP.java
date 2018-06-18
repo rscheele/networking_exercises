@@ -5,22 +5,13 @@ import java.net.*;
 public class SocketClientTCP {
 
     public static void main(String[] args) throws IOException {
-        String sentence;
         String modifiedSentence;
-        
-        BufferedReader inFromUser =
-                new BufferedReader(new InputStreamReader(System.in));
-        
-        if (args.length != 2) {
-            System.err.println(
-                "Usage: java TCPClient <host name> <port number>");
-            System.exit(1);
-        }
 
-        String hostName = args[0];
-        int portNumber = Integer.parseInt(args[1]);
-        
-        Socket clientSocket = new Socket(hostName,portNumber);
+        String hostName = "192.168.178.13";
+        int portNumber = 8080;
+        String sentence = "greetings from the TCP client!";
+
+        Socket clientSocket = new Socket(hostName, portNumber);
         
         DataOutputStream outToServer =
                 new DataOutputStream(clientSocket.getOutputStream());
@@ -28,9 +19,7 @@ public class SocketClientTCP {
         BufferedReader inFromServer =
                 new BufferedReader(new
                 InputStreamReader(clientSocket.getInputStream()));
-        
-        sentence = inFromUser.readLine();
-        
+
         outToServer.writeBytes(sentence + '\n');
         
         modifiedSentence = inFromServer.readLine();
