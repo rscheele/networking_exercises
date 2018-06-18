@@ -112,12 +112,12 @@ public class StreamingClient {
 
         //get server RTSP port and IP address from the command line
         //------------------
-        int RTSP_server_port = Integer.parseInt(argv[1]);
-        String ServerHost = argv[0];
+        int RTSP_server_port = 8080;
+        String ServerHost = "192.168.178.29";
         InetAddress ServerIPAddr = InetAddress.getByName(ServerHost);
 
         //get video filename to request:
-        VideoFileName = argv[2];
+        VideoFileName = "resources/movie.Mjpeg";
 
         //Establish a TCP connection with the server to exchange RTSP messages
         //------------------
