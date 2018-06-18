@@ -5,16 +5,9 @@ import java.net.*;
 public class SocketServerTCP {
 
     public static void main(String[] args) throws IOException {
-        String clientSentence;
-        String capitalizedSentence;
         
-        if (args.length != 1) {
-            System.err.println("Usage: java TCPServer <port number>");
-            System.exit(1);
-        }
-        
-        int portNumber = Integer.parseInt(args[0]);
-        
+        int portNumber = 8080;
+
         ServerSocket welcomeSocket = new ServerSocket(portNumber);
         
         while(true) {
@@ -27,13 +20,13 @@ public class SocketServerTCP {
             DataOutputStream outToClient =
                     new DataOutputStream(connectionSocket.getOutputStream());
             
-            clientSentence = inFromClient.readLine();
-            
-            capitalizedSentence = clientSentence.toUpperCase() + "\n";
-            
-            System.out.println(capitalizedSentence);
-            
-            outToClient.writeBytes(capitalizedSentence);
+            String clientSentence = inFromClient.readLine();
+
+            System.out.println(clientSentence);
+
+            String outFromServer = "GREETINGS BACK FROM TCP SERVER " + "\n";
+
+            outToClient.writeBytes(outFromServer);
         }
     }
     
