@@ -1,0 +1,1 @@
+java -cp C:\Users\Erco\Documents\NetBeansProjects\VH8I_StreamingPracticum\dist\VH8I_StreamingPracticum.jar vh8i_streamingpracticum.StreamingServer 7854
