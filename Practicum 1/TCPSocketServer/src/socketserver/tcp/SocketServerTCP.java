@@ -5,7 +5,7 @@ import java.net.*;
 public class SocketServerTCP {
 
     public static void main(String[] args) throws IOException {
-        
+
         int portNumber = 8080;
 
         ServerSocket welcomeSocket = new ServerSocket(portNumber);

@@ -6,13 +6,8 @@ import java.net.*;
 public class SocketServerUDP {
 
     public static void main(String[] args) throws Exception {
-        
-        if (args.length != 1) {
-            System.err.println("Usage: java UDPServer <port number>");
-            System.exit(1);
-        }
-        
-        int portNumber = Integer.parseInt(args[0]);
+
+        int portNumber = 8080;
         
         DatagramSocket serverSocket = new DatagramSocket(portNumber);
 
@@ -31,11 +26,12 @@ public class SocketServerUDP {
 
             int port = receivePacket.getPort();
 
-            String capitalizedSentence = sentence.toUpperCase();
+            System.out.println(sentence);
 
-            sendData = capitalizedSentence.getBytes();
+            String outSentence = "Hello back form the UDP server";
+
+            sendData = outSentence.getBytes();
             
-            System.out.println(capitalizedSentence);
 
             DatagramPacket sendPacket
                     = new DatagramPacket(sendData, sendData.length, IPAddress,
