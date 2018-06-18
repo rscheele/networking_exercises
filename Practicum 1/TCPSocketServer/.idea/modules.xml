@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TCPSocketClient.iml" filepath="$PROJECT_DIR$/TCPSocketClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TCPSocketServer.iml" filepath="$PROJECT_DIR$/TCPSocketServer.iml" />
     </modules>
   </component>
 </project>
