@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\NetwerkenMultiMedia\idh11-opdracht-6-server-app-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="D:\NetwerkenMultiMedia\idh11-opdracht-6-server-app-master\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_1381ae09c79b29acb9ccd26106562363739f92fe.jar" />
+    </item>
+    <item
+        jar="D:\NetwerkenMultiMedia\idh11-opdracht-6-server-app-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="D:\NetwerkenMultiMedia\idh11-opdracht-6-server-app-master\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_c5840ae818b7750ddbfde8cf9b8bb297391f1170.jar" />
+    </item>
+    <item
+        jar="D:\NetwerkenMultiMedia\idh11-opdracht-6-server-app-master\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="D:\NetwerkenMultiMedia\idh11-opdracht-6-server-app-master\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_788663b03c24d65d8f3a48e29db524621eab430f.jar" />
+    </item>
+    <item
+        jar="D:\NetwerkenMultiMedia\idh11-opdracht-6-server-app-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="D:\NetwerkenMultiMedia\idh11-opdracht-6-server-app-master\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_e58aed65ae41a4e6768983c703f4acac402818de.jar" />
+    </item>
+    <item
+        jar="C:\Users\Rodi\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="D:\NetwerkenMultiMedia\idh11-opdracht-6-server-app-master\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_888a4a2e572eb132411da3034fde1ba6ee43ef59.jar" />
+    </item>
+    <item
+        jar="D:\NetwerkenMultiMedia\idh11-opdracht-6-server-app-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="D:\NetwerkenMultiMedia\idh11-opdracht-6-server-app-master\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_54c1cc679c12f981c58a9b7fd549fc454e0fb619.jar" />
+    </item>
+
+</items>

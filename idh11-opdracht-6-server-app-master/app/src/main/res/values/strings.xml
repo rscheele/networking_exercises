@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Android 5</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_send">New Button</string>
+    <string name="server_on_of">Server aan/uit</string>
+    <string-array name="select_options">
+        <item>movie.Mjpeg</item>
+        <item>movie2.Mjpeg</item>
+    </string-array>
+</resources>
