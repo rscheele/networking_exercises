@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.2.1_116eaf0b10a7dcf4037b14dccdc058e402ed04bb.jar" />
+    </item>
+    <item
+        jar="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.2.1_12bf7cf892e05d6d8179399b678fb6179bca01b6.jar" />
+    </item>
+    <item
+        jar="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.2.1_d749cca9655cc4b5784cf29fd79372db83f35452.jar" />
+    </item>
+    <item
+        jar="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.2.1_a4b7969094947c5eca74421401fc6ea89cb9eb5e.jar" />
+    </item>
+    <item
+        jar="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\pre-dexed\debug\internal_impl-23.2.1_6246e8e852d5492bd01950cf342a7e67d5f03dad.jar" />
+    </item>
+    <item
+        jar="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.2.1_076529143052ac047bf171c61eeaa239f9116b96.jar" />
+    </item>
+    <item
+        jar="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.2.1_0d397ce3128399fd71b42088c4cbddb8e01a06ca.jar" />
+    </item>
+    <item
+        jar="C:\Users\Rodi\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\pre-dexed\debug\support-annotations-23.2.1_c99c847084dd06235d067ceb6fd5b439ec4db0ae.jar" />
+    </item>
+    <item
+        jar="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="F:\SchoolNetwerkenMultimedia\idh11-opdracht-6-client-app-master\app\build\intermediates\pre-dexed\debug\com.android.volley-volley-1.0.0_a9f7db3e8b2b473290204b06af5a4d9bb74ca3b1.jar" />
+    </item>
+
+</items>

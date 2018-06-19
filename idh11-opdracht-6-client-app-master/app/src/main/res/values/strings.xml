@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Opdracht-6-client</string>
+    <string name="action_settings">Settings</string>
+    <string name="http_no_connection">Er kon geen verbinding worden gemaakt</string>
+</resources>
