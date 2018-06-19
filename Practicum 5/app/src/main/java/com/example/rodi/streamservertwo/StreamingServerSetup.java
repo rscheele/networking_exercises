@@ -8,6 +8,8 @@ import java.net.Socket;
 public class StreamingServerSetup {
     AssetManager mAm;
 
+    // https://www.quora.com/How-do-I-allow-multiple-client-connections-to-my-Java-server
+
     public StreamingServerSetup(AssetManager am) {
         ServerSocket serverSocket;
         try {
