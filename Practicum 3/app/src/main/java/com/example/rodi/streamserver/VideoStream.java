@@ -1,19 +1,23 @@
 package com.example.rodi.streamserver;
 
+import android.content.res.AssetManager;
+import android.net.Uri;
+
 import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class VideoStream {
 
-    FileInputStream fis; //video file
+    InputStream fis; //video file
     int frame_nb; //current frame nb
 
     //-----------------------------------
     //constructor
     //-----------------------------------
-    public VideoStream(String filename) throws Exception {
-
-        //init variables
-        fis = new FileInputStream(filename);
+    public VideoStream(AssetManager assetManager, String filename) throws Exception {
+        Uri path = Uri.parse("assets://" + filename);
+        String newPath = path.toString();
+        fis = assetManager.open(filename);
         frame_nb = 0;
     }
 
