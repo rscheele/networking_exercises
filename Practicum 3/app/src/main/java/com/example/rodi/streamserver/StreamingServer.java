@@ -1,7 +1,13 @@
 package com.example.rodi.streamserver;
 
+import android.annotation.TargetApi;
+import android.content.res.AssetManager;
+import android.os.Build;
+import android.os.StrictMode;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.DatagramPacket;
@@ -10,9 +16,13 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.StringTokenizer;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class StreamingServer {
+public class StreamingServer implements Runnable{
 
+    private AssetManager assetManager;
     //RTP variables:
     //----------------
     DatagramSocket RTPsocket; // socket to be used to send and receive UDP packets
@@ -20,10 +30,6 @@ public class StreamingServer {
 
     InetAddress clientIpAddr; // Client IP address
     int rtpDestPort = 0; // destination port for RTP packets  (given by the RTSP Client)
-
-    //GUI:
-    //----------------
-    JLabel label;
 
     //Video variables:
     //----------------
@@ -62,67 +68,47 @@ public class StreamingServer {
     //--------------------------------
     //Constructor
     //--------------------------------
-    public StreamingServer() {
+    public StreamingServer(AssetManager assetManager) {
 
-        // init Frame
-        // super("Server");
-
-        // init Timer
-        timer = new Timer(FRAME_PERIOD, this);
-        timer.setInitialDelay(0);
-        timer.setCoalesce(true);
-
+        this.assetManager = assetManager;
         // allocate memory for the sending buffer
         buf = new byte[15000];
-
-        // Handler to close the main window
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                //stop the timer and exit
-                timer.stop();
-                System.exit(0);
-            }
-        });
-
-        //GUI:
-        label = new JLabel("Send frame #        ", JLabel.CENTER);
-        getContentPane().add(label, BorderLayout.CENTER);
     }
 
     //------------------------------------
     //main
     //------------------------------------
-    public static void main(String argv[]) throws Exception {
+    @Override
+    public void run() {
         //create a StreamingServer object
-        StreamingServer theStreamingServer = new StreamingServer();
-
-        //show GUI:
-        theStreamingServer.pack();
-        theStreamingServer.setVisible(true);
+        //StreamingServer theStreamingServer = new StreamingServer(assetManager);
 
         //get RTSP socket port from the command line
         int RTSPport = 8080;
 
         //Initiate TCP connection with the client for the RTSP session
-        ServerSocket listenSocket = new ServerSocket(RTSPport);
-        theStreamingServer.rtspSocket = listenSocket.accept();
+        ServerSocket listenSocket = null;
+        try {
+            listenSocket = new ServerSocket(RTSPport);
+
+        rtspSocket = listenSocket.accept();
         listenSocket.close();
 
         //Get Client IP address
-        theStreamingServer.clientIpAddr = theStreamingServer.rtspSocket.getInetAddress();
+        clientIpAddr = rtspSocket.getInetAddress();
 
         //Initiate RTSPstate
         state = INIT;
 
         //Set input and output stream filters:
-        rtspBufferedReader = new BufferedReader(new InputStreamReader(theStreamingServer.rtspSocket.getInputStream()));
-        rtspBufferedWriter = new BufferedWriter(new OutputStreamWriter(theStreamingServer.rtspSocket.getOutputStream()));
+        rtspBufferedReader = new BufferedReader(new InputStreamReader(rtspSocket.getInputStream()));
+        rtspBufferedWriter = new BufferedWriter(new OutputStreamWriter(rtspSocket.getOutputStream()));
 
         //Wait for the SETUP message from the client
         int request_type;
         boolean done = false;
         while (!done) {
-            request_type = theStreamingServer.parse_RTSP_request(); //blocking
+            request_type = parse_RTSP_request(); //blocking
 
             if (request_type == SETUP) {
                 done = true;
@@ -132,48 +118,65 @@ public class StreamingServer {
                 System.out.println("(streamingServer) new RTSP state: READY");
 
                 //Send response
-                theStreamingServer.send_RTSP_response();
+                send_RTSP_response();
 
                 //init the VideoStream object:
-                theStreamingServer.video = new VideoStream(VideoFileName);
+                video = new VideoStream(assetManager, VideoFileName);
 
                 //init RTP socket
-                theStreamingServer.RTPsocket = new DatagramSocket();
+                RTPsocket = new DatagramSocket();
             }
         }
 
         //loop to handle RTSP requests
         while (true) {
             //parse the request
-            request_type = theStreamingServer.parse_RTSP_request(); //blocking
+            request_type = parse_RTSP_request(); //blocking
 
             if ((request_type == PLAY) && (state == READY)) {
                 //send back response
-                theStreamingServer.send_RTSP_response();
+                send_RTSP_response();
                 //start timer
-                theStreamingServer.timer.start();
+                timer = new Timer();
+                timer.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        timerAction();
+                    }
+                }, 0, FRAME_PERIOD);
                 //update state
                 state = PLAYING;
                 System.out.println("(streamingServer) New RTSP state: PLAYING");
             } else if ((request_type == PAUSE) && (state == PLAYING)) {
                 //send back response
-                theStreamingServer.send_RTSP_response();
+                send_RTSP_response();
                 //stop timer
-                theStreamingServer.timer.stop();
+                timer.cancel();
+                timer.purge();
+                timer = null;
                 //update state
                 state = READY;
                 System.out.println("(streamingServer) New RTSP state: READY");
             } else if (request_type == TEARDOWN) {
                 //send back response
-                theStreamingServer.send_RTSP_response();
+                send_RTSP_response();
                 //stop timer
-                theStreamingServer.timer.stop();
+                //stop timer
+                timer.cancel();
+                timer.purge();
+                timer = null;
                 //close sockets
-                theStreamingServer.rtspSocket.close();
-                theStreamingServer.RTPsocket.close();
+                rtspSocket.close();
+                RTPsocket.close();
 
                 System.exit(0);
             }
+
+        }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -181,7 +184,7 @@ public class StreamingServer {
     //------------------------
     //Handler for timer
     //------------------------
-    public void actionPerformed() {
+    public void timerAction() {
         //if the current image nb is less than the length of the video
         if (imagenb < VIDEO_LENGTH) {
             //update current imagenb
@@ -209,8 +212,6 @@ public class StreamingServer {
                 //print the header bitstream
                 rtp_packet.printheader();
 
-                //update GUI
-                label.setText("Send frame #" + imagenb);
             } catch (Exception ex) {
                 System.out.println("Exception caught: " + ex);
                 ex.printStackTrace();
@@ -218,7 +219,7 @@ public class StreamingServer {
             }
         } else {
             //if we have reached the end of the video file, stop the timer
-            timer.stop();
+            timer.cancel();
         }
     }
 
